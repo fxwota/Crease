@@ -1,0 +1,27 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "crease-edge",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-04-01",
+  "observability": {
+    "enabled": true
+  },
+  "triggers": {
+    "crons": ["*/2 * * * *"]
+  },
+  "kv_namespaces": [
+    {
+      "binding": "CREASE_KV",
+      "id": "00000000000000000000000000000000",
+      "preview_id": "00000000000000000000000000000000"
+    }
+  ],
+  "vars": {
+    "ENVIRONMENT": "production",
+    "LOG_LEVEL": "info",
+    "SNAPSHOT_TTL_SECONDS": "180",
+    "STALE_WHILE_REVALIDATE_SECONDS": "600",
+    "PROVIDER_TIMEOUT_MS": "4500",
+    "ENABLE_UPSTREAM_FETCH": "true"
+  }
+}

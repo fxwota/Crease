@@ -1,0 +1,37 @@
+{
+  "name": "crease-api",
+  "version": "0.0.0",
+  "description": "Crease — Cloudflare Workers-Native Cricket Live Fixtures, Streams & Edge Proxy API",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx scripts/dev-server.ts",
+    "dev:cf": "wrangler dev --port 3000",
+    "start": "tsx scripts/dev-server.ts",
+    "build": "tsx scripts/sync-changelog.ts --check && tsc --noEmit",
+    "lint": "tsc --noEmit && tsx scripts/lint.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "changelog:sync": "tsx scripts/sync-changelog.ts",
+    "changelog:check": "tsx scripts/sync-changelog.ts --check",
+    "release:check": "tsx scripts/release.ts --check",
+    "release": "tsx scripts/release.ts",
+    "cf:dry-run": "wrangler deploy --dry-run"
+  },
+  "dependencies": {
+    "@cloudflare/workers-types": "^5.20261121.1",
+    "@eslint/js": "^10.0.1",
+    "@hono/node-server": "^2.1.11",
+    "eslint": "^10.15.0",
+    "hono": "^4.7.1",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "typescript-eslint": "^8.73.0",
+    "vitest": "^5.1.1",
+    "wrangler": "^4.166.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}
